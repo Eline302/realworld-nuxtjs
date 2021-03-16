@@ -7,46 +7,38 @@
       {
         "path": "",
         "name": "home",
-        "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\home",
-        "_name": "_09b23cd2"
+        "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\home"
       },
       {
         "name": "login",
         "path": "/login",
-        "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\login",
-        "_name": "_2ccda5d6"
+        "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\login"
       },
       {
         "name": "register",
         "path": "/register",
-        "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\login",
-        "_name": "_2ccda5d6"
+        "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\login"
       },
       {
         "name": "profile",
         "path": "/profile/:username",
-        "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\profile",
-        "_name": "_092258d6"
+        "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\profile"
       },
       {
         "name": "settings",
         "path": "/settings",
-        "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\settings",
-        "_name": "_a72e5ad4"
+        "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\settings"
       },
       {
         "name": "editor",
         "path": "/editor",
-        "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\editor",
-        "_name": "_605b38a0"
+        "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\editor"
       },
       {
         "name": "article",
-        "path": "/article/:sulg",
-        "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\article",
-        "_name": "_2026c7ba"
+        "path": "/article/:slug",
+        "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\article"
       }
-    ],
-    "_name": "_6c2a125d"
+    ]
   }
 ]

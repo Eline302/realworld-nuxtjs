@@ -31,9 +31,9 @@
                             <nuxt-link :to="`/profile/${article.author.username}`"><img :src="article.author.image" /></nuxt-link>
                             <div class="info">
                                 <nuxt-link :to="`/profile/${article.author.username}`" class="author">{{article.author.username}}</nuxt-link>
-                                <span class="date">{{article.createdAt}}</span>
+                                <span class="date">{{article.createdAt | date('MMMM DD,YYYY')}}</span>
                             </div>
-                            <button class="btn btn-outline-primary btn-sm pull-xs-right" :class="{active:article.favorited}">
+                            <button class="btn btn-outline-primary btn-sm pull-xs-right" :class="{active:article.favorited}" @click="onFavorited(article)" :disabled="article.favoriteDisable">
                                 <i class="ion-heart"></i> {{article.favoritesCount}}
                             </button>
                         </div>
@@ -95,21 +95,21 @@ export default {
             })
         */
         // 优化：并发执行速度快
-      const { tab } = query || 'global_feed'
+      const tab = query.tab || 'global_feed'
 
       const loadUrl = store.state.user && tab === 'your_feed'? CGI.getYourFeedAPI : CGI.getArticlesAPI
      
       const [articlesRes,tagsRes] =  await Promise.all([
             http({
-            type:'GET', 
-            url:loadUrl, 
-            params:{
-                limit,
-                // 文章偏移/跳跃数（默认0）
-                offset: (page-1) * limit,
-                // 按照标签筛选
-                tag: tag
-                } 
+                type:'GET', 
+                url:loadUrl, 
+                params:{
+                    limit,
+                    // 文章偏移/跳跃数（默认0）
+                    offset: (page-1) * limit,
+                    // 按照标签筛选
+                    tag: tag
+                    } 
             }),
             http({
                 type:'GET',
@@ -118,6 +118,9 @@ export default {
         ])
 
         const { articles, articlesCount } = articlesRes.data
+        articles.forEach(item =>{
+            item.favoriteDisable = false
+        })
         const { tags } = tagsRes.data
         return {
             articles: articles,
@@ -126,7 +129,7 @@ export default {
             limit,
             tags: tags,
             tag,
-            tab: tab
+            tab: query.tab || 'global_feed'
         }
     },
     // page改变，组件不会重新加载，asyncData也不会被调用
@@ -139,7 +142,30 @@ export default {
         }
     },
     methods:{
-
+     // 点赞和取消点赞
+      async onFavorited(article){
+        // 如果网络比较慢，用户频繁点击按钮，可能会导致期间来回处理导致出现错误。因此我们应该在请求期间禁用此按钮
+            article.favoriteDisable = true
+            if(article.favorited){
+                // 取消点赞  getDeleteFavoritedAPI
+                await http({
+                    type:'DELETE',
+                    url:`/api/articles/${article.slug}/favorite`
+                })
+                article.favoritesCount += -1
+                article.favorited = false
+            }else{
+                // 添加点赞 
+                await http({
+                    type:'POST',
+                    url:`/api/articles/${article.slug}/favorite`
+                })
+                article.favoritesCount += 1
+                article.favorited = true
+            }
+            // 请求完成后允许可点击此按钮
+             article.favoriteDisable = false
+        }
     }
 }
 </script>
