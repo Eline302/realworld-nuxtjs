@@ -1,6 +1,6 @@
 # realworld-nuxtjs
 
-开源项目realworld - NuxtJS综合实现（附项目完整流程）
+开源项目realworld - NuxtJS综合实现
 
 ## 相关案例资源
 
