@@ -45,9 +45,10 @@ export default {
             }])
         }
     },
+    // 设置成 0.0.0.0 监听所有的网卡地址
     server: {
-        host: '0.0.0.0', // 默认localhost
-        port: 3000
+        host: '0.0.0.0', // 访问地址 default localhost
+        port: 3000 // 端口号 port
     },
     //注册插件
     plugins: [
