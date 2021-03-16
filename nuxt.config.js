@@ -48,7 +48,7 @@ export default {
     server: {
         host: '0.0.0.0', // 默认localhost
         port: 3000
-    }
+    },
     //注册插件
     plugins: [
         '~plugins/request.js',
