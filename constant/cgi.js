@@ -8,7 +8,9 @@ const apis = {
     // 标签
     getTagsAPI:'/api/tags',
     // 关注
-    getYourFeedAPI:'/api/articles/feed'
+    getYourFeedAPI:'/api/articles/feed',
+    // 获取当前用户信息
+    getUserAPI:'/api/user'
 }
 
 export default apis;

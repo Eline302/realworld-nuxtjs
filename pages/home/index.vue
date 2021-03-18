@@ -37,7 +37,7 @@
                                 <i class="ion-heart"></i> {{article.favoritesCount}}
                             </button>
                         </div>
-                        <nuxt-link :to="`article/${article.slug}`" class="preview-link">
+                        <nuxt-link :to="`/article/${article.slug}`" class="preview-link">
                             <h1>{{article.title}}</h1>
                             <p>{{article.description}}</p>
                             <span>Read more...</span>
@@ -144,7 +144,13 @@ export default {
     methods:{
      // 点赞和取消点赞
       async onFavorited(article){
-        // 如果网络比较慢，用户频繁点击按钮，可能会导致期间来回处理导致出现错误。因此我们应该在请求期间禁用此按钮
+        // 判断是否登录
+        if(!this.$store.state.user){
+            this.$router.push('/login')
+            return
+        }
+        try {
+            // 如果网络比较慢，用户频繁点击按钮，可能会导致期间来回处理导致出现错误。因此我们应该在请求期间禁用此按钮
             article.favoriteDisable = true
             if(article.favorited){
                 // 取消点赞  getDeleteFavoritedAPI
@@ -164,11 +170,11 @@ export default {
                 article.favorited = true
             }
             // 请求完成后允许可点击此按钮
-             article.favoriteDisable = false
+            article.favoriteDisable = false
+        } catch (error) {
+            console.log('请求失败',error.message);
+        }
         }
     }
 }
 </script>
-<style scoped>
-
-</style>

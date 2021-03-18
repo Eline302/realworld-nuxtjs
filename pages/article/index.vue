@@ -14,8 +14,14 @@
             <div class="article-actions">
                 <article-meta :article="article" />
             </div>
-            <div class="row">
+            <div class="row" v-if="$store.state.user">
                 <article-comments :article="article" />
+            </div>
+            <div v-else>
+                <nuxt-link to="/login">Sign in</nuxt-link>
+                or
+                <nuxt-link to="/register">sign up</nuxt-link>
+                to add comments on this article.
             </div>
         </div>
     </div>
@@ -24,8 +30,8 @@
 import { http } from '@/api/user'
 import CGI from '@/constant/cgi'
 import MarkdownIt from 'markdown-it'
-import ArticleMeta from '@/components/article-meta'
-import ArticleComments from '@/components/article-comments'
+import ArticleMeta from './components/article-meta'
+import ArticleComments from './components/article-comments'
 export default {
     name:'ArticleIndex',
     components:{

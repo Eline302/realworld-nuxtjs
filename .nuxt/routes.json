@@ -35,6 +35,11 @@
         "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\editor"
       },
       {
+        "name": "editor",
+        "path": "/editor/:slug",
+        "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\editor"
+      },
+      {
         "name": "article",
         "path": "/article/:slug",
         "component": "E:\\\\Astudy\\\\part3\\\\part3-3\\\\eline-project\\\\realworld-nuxtjs\\\\pages\\\\article"

@@ -73,5 +73,5 @@ export default {
 }
 </script>
 <style scoped>
-
+/* .article-preview */
 </style>

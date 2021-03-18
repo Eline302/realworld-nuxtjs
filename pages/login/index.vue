@@ -7,7 +7,6 @@
                     <p class="text-xs-center">
                         <nuxt-link class="nav-link" :to="isLogin?'/register':'/login'">{{ isLogin ? 'need an account?' : 'Have an account?'}}</nuxt-link>
                     </p>
-
                     <ul class="error-messages">
                         <!-- 错误提示信息：对象键+对象值 -->
                         <!-- 遍历对象，获取对象键值 -->

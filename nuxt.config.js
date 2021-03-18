@@ -2,6 +2,9 @@
  * Nuxt 配置文件
  */
 export default {
+    css: [
+        '@/css/main.css',
+    ],
     router: {
         // 处理导航链接高亮
         linkActiveClass: 'active',
@@ -36,6 +39,10 @@ export default {
                 },{
                     name: 'editor',
                     path:'/editor',
+                    component: resolve(__dirname, 'pages/editor')
+                },{
+                    name: 'editor',
+                    path:'/editor/:slug',
                     component: resolve(__dirname, 'pages/editor')
                 },{
                     name: 'article',

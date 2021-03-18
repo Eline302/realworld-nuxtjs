@@ -25,5 +25,10 @@
     "js-cookie": "^2.2.1",
     "markdown-it": "^12.0.4",
     "nuxt": "^2.15.2"
+  },
+  "devDependencies": {
+    "fibers": "^5.0.0",
+    "sass": "^1.32.8",
+    "sass-loader": "^10.1.1"
   }
 }
